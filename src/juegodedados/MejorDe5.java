@@ -89,7 +89,7 @@ public class MejorDe5 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        String nombre1 = Txt_Jugador.getText();
        
-       new NewJFrame(nombre1).setVisible(true);
+       new Principal(nombre1).setVisible(true);
        dispose();
         
         /* Jugador jugador = new Jugador();
