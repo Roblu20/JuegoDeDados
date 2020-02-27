@@ -12,6 +12,7 @@ package juegodedados;
 public class MejorDe5 extends javax.swing.JFrame {
  
     public MejorDe5() {
+        //Comentario para enseñarles algo
         initComponents();
          setLocationRelativeTo(null);
         setTitle("Generador de dados");
