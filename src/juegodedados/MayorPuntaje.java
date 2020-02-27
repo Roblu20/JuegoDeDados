@@ -12,7 +12,7 @@ package juegodedados;
 public class MayorPuntaje extends javax.swing.JFrame {
  
     public MayorPuntaje() {
-        initComponents();
+        initComponents();       
          setLocationRelativeTo(null);
         setTitle("Juego de dados");
         setResizable(false);            
