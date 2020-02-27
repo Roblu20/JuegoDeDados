@@ -19,11 +19,15 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Juego de dados");
+        setResizable(false);
     }
     
-    public Principal(String nombre1) {        
+    public Principal(String nombre1,String nombre2) {        
         initComponents();
         jTextField1.setText(nombre1);
+        jTextField2.setText(nombre2);
     }
 
     /**
@@ -37,84 +41,113 @@ public class Principal extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnLoadMejorde5 = new javax.swing.JButton();
+        btnLoadMayorPuntaje = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Mejor de 5");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLoadMejorde5.setText("Mejor de 5");
+        btnLoadMejorde5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLoadMejorde5ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Mayor Puntaje");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnLoadMayorPuntaje.setText("Mayor Puntaje");
+        btnLoadMayorPuntaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnLoadMayorPuntajeActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("Jugador #1");
+
+        jLabel2.setText("Jugador #2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnLoadMejorde5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnLoadMayorPuntaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField2))
+                    .addComponent(jLabel2))
                 .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnLoadMejorde5)
+                    .addComponent(btnLoadMayorPuntaje))
                 .addGap(85, 85, 85))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLoadMejorde5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadMejorde5ActionPerformed
        
 
-        if (!jTextField1.getText().equals("") || !jTextField2.getText().equals("") ) {
+        if (jTextField1.getText().equals("") || jTextField2.getText().equals("") ) {
         
+        JOptionPane.showMessageDialog(null, "Debe ingresar ambos nombres", "ERROR", JOptionPane.WARNING_MESSAGE);        
+        new Principal().setVisible(true);
+        dispose();     
+        }
+        
+        else{
+        String nombre1 = jTextField1.getText();                
+        String nombre2 = jTextField2.getText();
+        
+        new MayorPuntaje(nombre1, nombre2).setVisible(true);
+        dispose();                                   
+        }
+        
+            
+           
+    }//GEN-LAST:event_btnLoadMejorde5ActionPerformed
+
+    private void btnLoadMayorPuntajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadMayorPuntajeActionPerformed
+
+         if (jTextField1.getText().equals("") || jTextField2.getText().equals("") ) {
+        
+        JOptionPane.showMessageDialog(null, "Debe ingresar ambos nombres", "ERROR", JOptionPane.WARNING_MESSAGE);        
+        new Principal().setVisible(true);
+        dispose();     
+        }
+        
+        else{
         String nombre1 = jTextField1.getText();                
         String nombre2 = jTextField2.getText();
         
         new MejorDe5(nombre1, nombre2).setVisible(true);
         dispose();                                   
-
-        } else {
-            
-            JOptionPane.showMessageDialog(null, "Debe ingresar los nombres", "ERROR", JOptionPane.WARNING_MESSAGE);        
-            System.exit(0);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        String nombre1 = jTextField1.getText();                
-        String nombre2 = jTextField2.getText();
         
-        new MejorDe5(nombre1, nombre2).setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+        
+         
+    }//GEN-LAST:event_btnLoadMayorPuntajeActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -154,8 +187,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnLoadMayorPuntaje;
+    private javax.swing.JButton btnLoadMejorde5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
