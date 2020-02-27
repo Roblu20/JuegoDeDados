@@ -119,7 +119,7 @@ public class Principal extends javax.swing.JFrame {
         String nombre1 = jTextField1.getText();                
         String nombre2 = jTextField2.getText();
         
-        new MayorPuntaje(nombre1, nombre2).setVisible(true);
+        new MejorDe5(nombre1, nombre2).setVisible(true);
         dispose();                                   
         }
         
@@ -140,7 +140,7 @@ public class Principal extends javax.swing.JFrame {
         String nombre1 = jTextField1.getText();                
         String nombre2 = jTextField2.getText();
         
-        new MejorDe5(nombre1, nombre2).setVisible(true);
+        new MayorPuntaje(nombre1, nombre2).setVisible(true);
         dispose();                                   
         }
         
